@@ -1,0 +1,118 @@
+/* Experience.css - Enhanced Aesthetics */
+
+.experience-section {
+  max-width: 850px;
+  margin: 48px auto;
+  padding: 0 24px;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  color: #23272f;
+  background: #f8fafc;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px 0 rgba(30, 41, 59, 0.10);
+}
+
+.experience-section h2 {
+  font-size: 2.3em;
+  color: #0d1b2a;
+  margin-bottom: 32px;
+  border-bottom: 2.5px solid #e0e7ef;
+  padding-bottom: 12px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center; /* Center the header text */
+}
+
+.experience-item {
+  margin-bottom: 40px;
+  padding: 28px 28px 24px 28px; /* Make left/right padding equal */
+  border-left: 5px solid #007bff;
+  background: #fff;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 2px 12px 0 rgba(0, 123, 255, 0.06);
+  transition: box-shadow 0.2s;
+}
+
+.experience-item:hover {
+  box-shadow: 0 6px 24px 0 rgba(0, 123, 255, 0.13);
+  border-left-color: #0056b3;
+}
+
+.experience-item::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 32px;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, #007bff 60%, #00c6ff 100%);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px 0 rgba(0, 123, 255, 0.18);
+}
+
+.experience-header {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the header content horizontally */
+}
+
+.job-title {
+  font-size: 1.35em;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin: 0 0 5px 0;
+  letter-spacing: 0.5px;
+}
+
+.company-name {
+  font-size: 1.08em;
+  font-weight: 600;
+  color: #007bff;
+  margin: 0 0 7px 0;
+  letter-spacing: 0.2px;
+}
+
+.job-location-dates {
+  font-size: 0.98em;
+  color: #6c757d;
+  margin: 0;
+  font-style: italic;
+}
+
+.responsibilities-list {
+  margin: 14px 0 0 0;
+  padding-left: 22px;
+  list-style-type: disc;
+}
+
+.responsibilities-list li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+  color: #374151;
+  font-size: 1.04em;
+  transition: color 0.2s;
+}
+
+.responsibilities-list li:hover {
+  color: #007bff;
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.company-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-right: 16px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  vertical-align: middle;
+}
