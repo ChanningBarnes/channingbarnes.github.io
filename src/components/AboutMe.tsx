@@ -22,7 +22,7 @@ const AboutMe: React.FC = () => {
             <a href="https://github.com/channingbarnes" target="_blank" rel="noopener noreferrer">GitHub</a> |{' '}
             <a href="https://linkedin.com/in/channing-barnes" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </p>
-            “I can do all this through him who gives me strength.” – Philippians 4:13
+            “I can do all this through him who gives me strength” – Philippians 4:13
         </div>
         <img 
           src="imgs/CroppedShot.png" 
