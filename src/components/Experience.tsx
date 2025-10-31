@@ -1,16 +1,15 @@
 import React from 'react';
-import './Experience.css'; // Import CSS - Ensure your build process handles CSS imports
+import './Experience.css'; // Your main experience styles
 
-import './App.css'; // Your main app styles
-// Define a type for better code clarity (optional, but good practice with TypeScript)
+// Define a type for a single experience item
 interface ExperienceItem {
-  id: number; // Unique key for React list rendering
+  id: number;
   title: string;
   company: string;
   location: string;
-  dates: string; // e.g., "June 2023 - August 2023" or "2022 - Present"
-  description: string[]; // Array of bullet points
-  logo: string; // Add this line
+  dates: string;
+  description: string[];
+  logo: string;
 }
 
 // Array containing your experience details
@@ -27,7 +26,7 @@ const experiencesData: ExperienceItem[] = [
       'Build and support robust back-end services and APIs with Spring Boot.',
       'Design and manage database schemas and queries using Oracle SQL.',
     ],
-    logo: '/imgs/wf.jpg', // Use public/imgs/wf.jpg and reference as /imgs/wf.jpg
+    logo: '/imgs/wf.jpg',
   },
   {
     id: 2,
@@ -80,20 +79,20 @@ const Experience: React.FC = () => {
       <div>
         {experiencesData.map((exp) => (
           <article key={exp.id} className="experience-item">
-            <header className="experience-header" style={{ display: 'flex', alignItems: 'center' }}>
+            {/* The header is now cleaner, relying on the CSS for layout */}
+            <header className="experience-header">
               <img
                 src={exp.logo}
                 alt={`${exp.company} logo`}
                 className="company-logo"
-                style={{ width: 48, height: 48, objectFit: 'contain', marginRight: 16, borderRadius: 8, background: '#fff', boxShadow: '0 2px 8px rgba(0,0,0,0.07)' }}
               />
-              <div>
+              <div className="job-details">
                 <h3 className="job-title">{exp.title}</h3>
                 <p className="company-name">{exp.company}</p>
-                <p className="job-location-dates">
-                  <span>{exp.location}</span> | <span>{exp.dates}</span>
-                </p>
               </div>
+              <p className="job-location-dates">
+                <span>{exp.location}</span> | <span>{exp.dates}</span>
+              </p>
             </header>
             <ul className="responsibilities-list">
               {exp.description.map((point, index) => (
@@ -108,4 +107,3 @@ const Experience: React.FC = () => {
 }
 
 export default Experience;
-

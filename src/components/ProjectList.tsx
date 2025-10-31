@@ -3,14 +3,20 @@ import React from 'react';
 import ProjectCard from './ProjectCard';
 
 
+
 // Import CSS
 import './ProjectList.css';
+
+export type Technology = {
+  name: string;
+  iconClass: string;
+};
 export type Project = { // Use 'export' if you need this type outside this file (e.g., in App.tsx)
   id: string | number;
   title: string;
   description: string;
   imageUrl?: string;
-  technologies?: string[];
+  technologies?: Technology[];
   liveUrl?: string;
   repoUrl?: string;
 };

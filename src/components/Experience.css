@@ -1,118 +1,161 @@
-/* Experience.css - Enhanced Aesthetics */
+/* Experience.css - Matched to the modern, "squishy" theme */
+
+/* Using the same variables from your main theme for consistency */
+:root {
+  --primary-color: #6a5acd;
+  --secondary-color: #f0f2f5;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --text-color: #555;
+  --heading-color: #2c3e50;
+  --shadow-color: rgba(106, 90, 205, 0.15);
+}
 
 .experience-section {
-  max-width: 850px;
-  margin: 48px auto;
-  padding: 0 24px;
-  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-  color: #23272f;
-  background: #f8fafc;
-  border-radius: 18px;
-  box-shadow: 0 6px 32px 0 rgba(30, 41, 59, 0.10);
+  width: 98%;
+  max-width: 1400px;
+  margin: clamp(30px, 8vw, 60px) auto;
+  padding: clamp(20px, 5vw, 40px) clamp(10px, 3vw, 20px);
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
 }
 
 .experience-section h2 {
-  font-size: 2.3em;
-  color: #0d1b2a;
-  margin-bottom: 32px;
-  border-bottom: 2.5px solid #e0e7ef;
-  padding-bottom: 12px;
-  letter-spacing: 1px;
+  font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 700;
-  background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center; /* Center the header text */
+  color: var(--heading-color);
+  text-align: center;
+  margin-bottom: clamp(30px, 6vw, 50px);
+  position: relative;
 }
 
+/* Underline effect for the main header */
+.experience-section h2::after {
+  content: '';
+  display: block;
+  width: clamp(60px, 10vw, 80px);
+  height: 4px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  margin: 10px auto 0;
+}
+
+/* Re-styled to be a floating card with more horizontal layout */
 .experience-item {
-  margin-bottom: 40px;
-  padding: 28px 28px 24px 28px; /* Make left/right padding equal */
-  border-left: 5px solid #007bff;
-  background: #fff;
-  border-radius: 12px;
+  background: var(--card-background);
+  border-radius: 20px;
+  padding: clamp(25px, 4vw, 40px);
+  margin-bottom: clamp(25px, 4vw, 35px);
+  box-shadow: 0 10px 30px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(200px, 25%) 1fr;
+  gap: clamp(20px, 4vw, 40px);
+  border: none; /* Removed the old border-left */
   position: relative;
-  box-shadow: 0 2px 12px 0 rgba(0, 123, 255, 0.06);
-  transition: box-shadow 0.2s;
 }
 
 .experience-item:hover {
-  box-shadow: 0 6px 24px 0 rgba(0, 123, 255, 0.13);
-  border-left-color: #0056b3;
-}
-
-.experience-item::before {
-  content: '';
-  position: absolute;
-  left: -14px;
-  top: 32px;
-  width: 18px;
-  height: 18px;
-  background: linear-gradient(135deg, #007bff 60%, #00c6ff 100%);
-  border: 3px solid #fff;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px 0 rgba(0, 123, 255, 0.18);
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 20px 40px rgba(106, 90, 205, 0.25);
 }
 
 .experience-header {
-  margin-bottom: 12px;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the header content horizontally */
+  gap: 20px; /* Space between logo and text */
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.company-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%; /* Circular logo to match your profile image */
+  border: 3px solid var(--primary-color);
+  padding: 5px; /* Adds a bit of space around the logo */
+  background-color: white;
+}
+
+.job-details {
+  flex-grow: 1;
+  text-align: center;
 }
 
 .job-title {
-  font-size: 1.35em;
-  font-weight: 700;
-  color: #0d1b2a;
-  margin: 0 0 5px 0;
-  letter-spacing: 0.5px;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin: 0 0 4px 0;
 }
 
 .company-name {
-  font-size: 1.08em;
-  font-weight: 600;
-  color: #007bff;
-  margin: 0 0 7px 0;
-  letter-spacing: 0.2px;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin: 0;
 }
 
 .job-location-dates {
-  font-size: 0.98em;
-  color: #6c757d;
-  margin: 0;
-  font-style: italic;
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 8px;
+  font-style: normal;
+  text-align: right;
 }
 
 .responsibilities-list {
-  margin: 14px 0 0 0;
-  padding-left: 22px;
-  list-style-type: disc;
+  list-style: disc; /* Use standard disc bullet points */
+  padding-left: 20px; /* Standard indentation for a bulleted list */
+  margin-top: 15px;
 }
 
 .responsibilities-list li {
-  margin-bottom: 10px;
-  line-height: 1.7;
-  color: #374151;
-  font-size: 1.04em;
-  transition: color 0.2s;
+  font-size: 1em;
+  line-height: 1.8;
+  color: var(--text-color);
+  margin-bottom: 12px;
+  padding-left: 5px; /* Adjust left padding for standard bullets */
+  position: relative;
 }
 
-.responsibilities-list li:hover {
-  color: #007bff;
+.responsibilities-list li:hover::before {
+  transform: translateX(5px); /* Moves the arrow slightly to the right on hover */
 }
 
 .experience-item:last-child {
   margin-bottom: 0;
 }
 
-.company-logo {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  margin-right: 16px;
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  vertical-align: middle;
+/* Mobile fixes: stack experience card content vertically and ensure text stays inside card */
+@media (max-width: 700px) {
+  .experience-item {
+    grid-template-columns: 1fr;
+    padding: 18px 8px;
+    gap: 12px;
+    display: block;
+  }
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .job-details {
+    text-align: left;
+    width: 100%;
+  }
+  .company-logo {
+    margin-bottom: 8px;
+  }
+  .job-location-dates {
+    text-align: left;
+    margin-top: 4px;
+  }
+  .responsibilities-list {
+    padding-left: 16px;
+    margin-top: 10px;
+  }
 }

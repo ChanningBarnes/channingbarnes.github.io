@@ -1,63 +1,347 @@
-.about-me-section {
-  padding: 2rem 1rem;
-  background: #f8f9fa;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  max-width: 900px;
-  margin: 2rem auto;
+/* --- CSS Variables for Easy Customization --- */
+:root {
+  --primary-color: #6a5acd; /* A modern slate blue/purple */
+  --secondary-color: #f0f2f5;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --text-color: #555;
+  --heading-color: #2c3e50;
+  --shadow-color: rgba(106, 90, 205, 0.15);
 }
 
+/* --- Main Section Styling --- */
+.about-me-section {
+  font-family: 'Poppins', sans-serif;
+  background-color: transparent;
+  padding: 80px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Main Content Card --- */
 .about-me-content {
+  display: flex;
+  flex-direction: column; 
+  gap: 2rem;
+  width: 98%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: var(--card-background);
+  padding: clamp(25px, 5vw, 60px);
+  border-radius: 25px;
+  box-shadow: 0 15px 40px var(--shadow-color);
+}
+
+/* --- Intro Section (Text + Image) --- */
+.about-me-intro {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: clamp(2rem, 4vw, 4rem);
+  flex-wrap: wrap;
+  padding: 0 clamp(10px, 3vw, 30px);
 }
 
-.about-me-text {
-  flex: 1;
-}
-
-.about-me-text h2 {
-  margin-bottom: 1rem;
-  color: #2d3748;
-}
-
-.about-me-text ul {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-}
-
-.about-me-text ul li {
-  margin-bottom: 0.5rem;
-  font-size: 1.05rem;
-}
-
-.about-me-text a {
-  color: #3182ce;
-  text-decoration: none;
-  margin-right: 0.5rem;
-  transition: color 0.2s;
-}
-
-.about-me-text a:hover {
-  color: #2b6cb0;
-  text-decoration: underline;
-}
-
-.about-me-text blockquote {
-  margin-top: 1.5rem;
-  font-style: italic;
-  color: #4a5568;
-  border-left: 4px solid #3182ce;
-  padding-left: 1rem;
-}
-
+/* --- Responsive Headshot Image --- */
 .about-me-img {
-  width: 150px;
-  height: 150px;
+  flex: 0 1 auto;
+  width: min(280px, 100%);
+  height: auto;
+  min-width: 200px;
   border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 2px 8px rgba(49,130,206,0.12);
+  margin: 0 auto;
+  border: 6px solid var(--primary-color);
+  box-shadow: 0 8px 25px var(--shadow-color);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.about-me-img:hover {
+  transform: scale(1.07) rotate(4deg);
+  box-shadow: 0 12px 35px rgba(106, 90, 205, 0.3);
+}
+
+/* --- Text Styling (was .about-me-text) --- */
+.about-me-intro-text {
+  flex: 2; /* Takes up more space than the image */
+  min-width: 300px;
+}
+
+.about-me-intro-text h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+}
+
+.about-me-intro-text p {
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Skills and Links Styling --- */
+.skills-header {
+  margin-top: 1rem;
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+.skill-category {
+  margin-bottom: 1.5rem;
+}
+
+.skill-category h4 {
+  margin-bottom: 1rem;
+  color: var(--heading-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.skill-category ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-category li {
+  background-color: var(--secondary-color);
+  color: var(--heading-color);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  transition: all 0.3s ease;
+  display: flex; /* Make it a flex container */
+  align-items: center; /* Vertically align icon and text */
+  gap: 8px; /* Space between icon and text */
+}
+.skill-category li i {
+  /* color: var(--primary-color); Give icons an accent color */
+  font-size: 1.1em; /* Make icons slightly larger than text */
+}
+
+.skill-category li:hover {
+  /* background-color: var(--primary-color); */
+  color: black;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 15px var(--shadow-color);
+}
+
+/* --- Social Links --- */
+.social-links {
+  margin-top: 2.5rem;
+}
+
+
+.social-links a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 12px 24px;
+  border: 2px solid var(--primary-color);
+  border-radius: 30px;
+  margin-right: 10px;
+  transition: all 0.3;
+  display: inline-flex; /* Use inline-flex for buttons with icons */
+  align-items: center;
+  gap: 8px; /* Space between icon and text in buttons */
+}
+
+.social-links a:hover {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 12px 24px;
+  border: 2px solid var(--primary-color);
+  border-radius: 70px;
+  margin-right: 10px;
+  transition: all 0.3;
+  display: inline-flex; /* Use inline-flex for buttons with icons */
+  align-items: center;
+  gap: 8px; /* Space between icon and text in buttons */
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 15px var(--shadow-color);
+}
+.social-links a i {
+    font-size: 1.2em; /* Slightly larger social icons */
+}
+.skills-and-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.skill-js i         { color: #F7DF1E; }
+.skill-python i     { color: #3776AB; }
+.skill-java i       { color: #f89820; }
+.skill-csharp i     { color: #9B4F96; } /* C# Purple */
+.skill-html .fa-html5 { color: #E34F26; } /* HTML5 Orange */
+.skill-html .fa-css3-alt { color: #1572B6; } /* CSS3 Blue */
+.skill-sql i        { color: #003B57; }
+.skill-react i      { color: #61DAFB; }
+.skill-angular i    { color: #DD0031; }
+.skill-jquery i     { color: #0769AD; }
+.skill-node i       { color: #339933; }
+.skill-spring i     { color: #6DB33F; }
+.skill-mongo i      { color: #47A248; }
+.skill-git i        { color: #F05032; }
+.skill-excel i      { color: #1D6F42; }
+
+/* Default icon colors for generic ones */
+.skill-responsive i,
+.skill-express i,
+.skill-aspnet i,
+.skill-agile i,
+.skill-wireshark i {
+  color: var(--primary-color);
+}
+
+/* Social Link Colors */
+.social-github i    { color: #181717; }
+.social-linkedin i  { color: #0A66C2; }
+
+
+/* --- Dynamic Hover Effect --- */
+/* Remove the generic icon color rule we set before */
+.skill-category li i {
+  font-size: 1.1em;
+  /* The color is now handled by the classes above */
+}
+
+/* Now, we make the background of the pill change on hover! */
+.skill-js:hover         { background-color: #f7e01e33; }
+.skill-python:hover     { background-color: #3776ab33; }
+.skill-java:hover       { background-color: #f8982033; }
+.skill-csharp:hover     { background-color: #9b4f9633; }
+.skill-html:hover       { background-color: #e3502633; }
+.skill-sql:hover        { background-color: #003b5733; }
+.skill-react:hover      { background-color: #61dafb33; }
+.skill-angular:hover    { background-color: #dd003133; }
+.skill-jquery:hover     { background-color: #0769ad33; }
+.skill-node:hover       { background-color: #33993333; }
+.skill-spring:hover     { background-color: #6db33f33; }
+.skill-mongo:hover      { background-color: #47a24833; }
+.skill-git:hover        { background-color: #f0503233; }
+.skill-excel:hover      { background-color: #1d6f4233; }
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+  /* Optimize section padding for smaller screens */
+  .about-me-section {
+    padding: 40px 20px;
+    min-height: auto; /* Allow content to determine height */
+  }
+
+  /* Adjust main content card for better space usage */
+  .about-me-content {
+    padding: 35px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Improve intro section layout */
+  .about-me-intro {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* Center text and adjust sizes */
+  .about-me-intro-text {
+    text-align: center;
+    min-width: 100%;
+  }
+
+  .about-me-intro-text h2 {
+    font-size: 2.3rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Optimize image size */
+  .about-me-img {
+    max-width: 240px;
+    min-width: 200px;
+    margin: 0 auto;
+  }
+
+  /* Improve skills layout */
+  .skill-category ul {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .skill-category li {
+    flex: 0 1 calc(50% - 15px); /* Two skills per row */
+    justify-content: center;
+    min-width: 130px;
+  }
+
+  /* Enhance social links presentation */
+  .social-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 2rem;
+  }
+
+  .social-links a {
+    margin: 0;
+    min-width: 160px;
+    justify-content: center;
+  }
+}
+
+/* Phone-specific optimizations */
+@media (max-width: 480px) {
+  /* Further reduce padding for very small screens */
+  .about-me-section {
+    padding: 30px 15px;
+  }
+
+  .about-me-content {
+    padding: 25px 20px;
+  }
+
+  /* Adjust text sizes for better readability */
+  .about-me-intro-text h2 {
+    font-size: 2rem;
+  }
+
+  .about-me-intro-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Make skills full width on very small screens */
+  .skill-category li {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: none;
+  }
+
+  /* Stack social links on very small screens */
+  .social-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .social-links a {
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  /* Adjust skill category headers */
+  .skill-category h4 {
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
+  }
 }

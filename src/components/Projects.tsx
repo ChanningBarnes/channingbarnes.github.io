@@ -1,71 +1,98 @@
 // src/App.tsx
 import React from 'react';
 import ProjectList from './ProjectList';
+import './App.css';
+import './Projects.css'
 
-import './App.css'; // Your main app styles
-export type Project = { // Use 'export' if you need this type outside this file (e.g., in App.tsx)
+// Define a type for a single technology object
+export type Technology = {
+  name: string;
+  iconClass: string;
+};
+
+// Update the Project type to use the new Technology type
+export type Project = {
   id: string | number;
   title: string;
   description: string;
   imageUrl?: string;
-  technologies?: string[];
+  technologies?: Technology[]; // This now expects an array of Technology objects
   liveUrl?: string;
-  repoUrl?: string;
+  webpageUrl?: string; // Corrected from repoUrl to webpageUrl
+  codeUrl?: string;
 };
-// --- Sample Project Data ---
-// Explicitly type the array using the Project interface
+
+// --- Sample Project Data with Icon Classes ---
 const myProjects: Project[] = [
   {
-    id: 1, // Use string or number
+    id: 1,
     title: 'Personal Portfolio Website',
     description: 'The website you are currently viewing! Built with React & TypeScript, showcasing my projects and skills.',
-    imageUrl: '../imgs/file.png', // Path relative to public folder or absolute URL
-    technologies: ['React', 'TypeScript', 'HTML', 'CSS',],
+    imageUrl: '../imgs/file.png',
+    technologies: [
+      { name: 'React', iconClass: 'fab fa-react' },
+      { name: 'TypeScript', iconClass: 'fab fa-js-square' },
+      { name: 'HTML', iconClass: 'fab fa-html5' },
+      { name: 'CSS', iconClass: 'fab fa-css3-alt' },
+    ],
+    codeUrl: '#' // Dummy link
   },
   {
-    id: 2, // Example using number ID
+    id: 2,
     title: 'Bible In A Year',
-    description: 'A web application to generate a yearlong Bible reading plan starting from any date',
+    description: 'A web application to generate a yearlong Bible reading plan starting from any date.',
     imageUrl: '../imgs/bible.png',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-    repoUrl: 'https://bibleinayear.github.io', // Replace
+    technologies: [
+      { name: 'HTML', iconClass: 'fab fa-html5' },
+      { name: 'CSS', iconClass: 'fab fa-css3-alt' },
+      { name: 'JavaScript', iconClass: 'fab fa-js-square' },
+    ],
+    webpageUrl: 'https://bibleinayear.github.io',
+    codeUrl: '#' // Dummy link
   },
   {
     id: 3,
     title: 'Argos (Project Glass Wall)',
     description: 'A simple web application to check the current weather and forecast for a city using a third-party API.',
     imageUrl: '../imgs/argos.png',
-    technologies: ['HTML', 'CSS', 'Javascript', 'Python', 'Flask','OpenCV', 'YOLOv10'],
-    repoUrl: 'https://projectglasswall.github.io', // Replace
+    technologies: [
+      { name: 'HTML', iconClass: 'fab fa-html5' },
+      { name: 'CSS', iconClass: 'fab fa-css3-alt' },
+      { name: 'Javascript', iconClass: 'fab fa-js-square' },
+      { name: 'Python', iconClass: 'fab fa-python' },
+      { name: 'Flask', iconClass: 'fas fa-server' },
+      { name: 'OpenCV', iconClass: 'fas fa-camera-retro' },
+      { name: 'YOLOv10', iconClass: 'fas fa-bullseye' },
+    ],
+    webpageUrl: 'https://projectglasswall.github.io',
+    codeUrl: '#' // Dummy link
   },
-  { id: 4,
-    title: 'CC\'s Coffee and Cream',
+  { 
+    id: 4,
+    title: "CC's Coffee and Cream",
     description: 'A website for a small coffee shop business.',
     imageUrl: '../imgs/cc.png',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'React', ],
-    repoUrl: 'https://ccscoffeeandcream.com', // Replace
-    },
+    technologies: [
+      { name: 'HTML', iconClass: 'fab fa-html5' },
+      { name: 'CSS', iconClass: 'fab fa-css3-alt' },
+      { name: 'JavaScript', iconClass: 'fab fa-js-square' },
+      { name: 'React', iconClass: 'fab fa-react' },
+    ],
+    webpageUrl: 'https://ccscoffeeandcream.com',
+    codeUrl: '#' // Dummy link
+  },
 ];
 // --- End Sample Data ---
 
-// Define the App component using standard function syntax or React.FC
-function App(): JSX.Element { // Return type is JSX.Element
+function App(): JSX.Element {
   return (
     <div className="App">
       <main>
         <h2>My Projects</h2>
-        {/* Pass the typed projects array */}
         <ProjectList projects={myProjects} />
-
-        {/* Example: Render the component without passing props (uses default []) */}
-        {/* <h2>Empty List Example</h2> */}
-        {/* <ProjectList /> */}
       </main>
     </div>
   );
 }
-
-// Alternative using React.FC
-// const App: React.FC = () => { ... return (...); };
 
 export default App;

@@ -1,34 +1,35 @@
 // src/components/ProjectCard.tsx
 import React from 'react';
-// No need to import PropTypes
-
-// Import CSS - Make sure your build process handles CSS imports
 import './ProjectCard.css';
 
-// Define the interface for the component's props
-// Note: We can directly define the expected props here
-// or import/use the 'Project' type if the props match exactly.
+// Define the Technology type, or import it from App.tsx
+type Technology = {
+  name: string;
+  iconClass: string;
+};
+
+// Update the props interface
 interface ProjectCardProps {
   title: string;
   description: string;
-  imageUrl?: string; // Optional
-  technologies?: string[]; // Optional
-  liveUrl?: string; // Optional
-  repoUrl?: string; // Optional
+  imageUrl?: string;
+  technologies?: Technology[];
+  liveUrl?: string;
+  webpageUrl?: string;
+  codeUrl?: string;
 }
 
-// Use React.FC (Functional Component) and type the props
 const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   description,
   imageUrl,
-  technologies = [], // Default value for optional array
+  technologies = [],
   liveUrl,
-  repoUrl
+  webpageUrl,
+  codeUrl = "#"
 }) => {
   return (
     <div className="project-card">
-      {/* Conditionally render the image */}
       {imageUrl && (
         <img src={imageUrl} alt={`${title} screenshot`} className="project-image" />
       )}
@@ -36,28 +37,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <h3 className="project-title">{title}</h3>
         <p className="project-description">{description}</p>
 
-        {/* Render technologies only if the array is not empty */}
         {technologies.length > 0 && (
           <div className="project-technologies">
             <strong>Technologies:</strong>
             <ul>
               {technologies.map((tech, index) => (
-                <li key={index} className="tech-tag">{tech}</li>
+                // Directly use the properties from the tech object
+                <li key={index} className="tech-tag">
+                  <i className={tech.iconClass}></i> {tech.name}
+                </li>
               ))}
             </ul>
           </div>
         )}
 
         <div className="project-links">
-          {/* Conditionally render links */}
           {liveUrl && (
             <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="project-link live-link">
-              Live Demo
+              <i className="fas fa-external-link-alt"></i> Live Demo
             </a>
           )}
-          {repoUrl && (
-            <a href={repoUrl} target="_blank" rel="noopener noreferrer" className="project-link repo-link">
-              View Webpage
+          {webpageUrl && (
+            <a href={webpageUrl} target="_blank" rel="noopener noreferrer" className="project-link live-link">
+              <i className="fas fa-desktop"></i> View Webpage
             </a>
           )}
         </div>
@@ -65,8 +67,5 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     </div>
   );
 };
-
-// PropTypes are replaced by the TypeScript interface definition
-// Default props can be handled via default parameter values in destructuring (as shown for technologies)
 
 export default ProjectCard;
