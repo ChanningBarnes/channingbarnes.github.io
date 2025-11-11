@@ -1,23 +1,59 @@
 /* --- CSS Variables for Easy Customization --- */
 :root {
-  --primary-color: #6a5acd; /* A modern slate blue/purple */
-  --secondary-color: #f0f2f5;
-  --background-color: #f8f9fa;
-  --card-background: #ffffff;
-  --text-color: #555;
-  --heading-color: #2c3e50;
-  --shadow-color: rgba(106, 90, 205, 0.15);
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --neutral-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  
+  --primary-color: #667eea;
+  --primary-dark: #5a67d8;
+  --secondary-color: #f7fafc;
+  --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --card-background: rgba(255, 255, 255, 0.95);
+  --glass-background: rgba(255, 255, 255, 0.1);
+  --text-color: #2d3748;
+  --text-light: #4a5568;
+  --heading-color: #1a202c;
+  --accent-color: #4facfe;
+  --shadow-primary: rgba(102, 126, 234, 0.4);
+  --shadow-soft: rgba(0, 0, 0, 0.1);
 }
 
 /* --- Main Section Styling --- */
 .about-me-section {
-  font-family: 'Poppins', sans-serif;
-  background-color: transparent;
-  padding: 80px 20px;
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: transparent;
+  padding: clamp(40px, 8vw, 80px) clamp(20px, 4vw, 40px);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background elements */
+.about-me-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+  background-size: 60px 60px;
+  animation: float 20s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, -20px) rotate(1deg); }
+}
+
+.about-me-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* --- Main Content Card --- */
@@ -26,12 +62,20 @@
   flex-direction: column; 
   gap: 2rem;
   width: 98%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   background: var(--card-background);
-  padding: clamp(25px, 5vw, 60px);
-  border-radius: 25px;
-  box-shadow: 0 15px 40px var(--shadow-color);
+  backdrop-filter: blur(20px);
+  padding: clamp(30px, 5vw, 60px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 8px 32px var(--shadow-primary),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 /* --- Intro Section (Text + Image) --- */
@@ -69,10 +113,31 @@
 }
 
 .about-me-intro-text h2 {
-  font-size: 2.8rem;
-  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 800;
   color: var(--heading-color);
-  margin-bottom: 1rem;
+  margin-bottom: clamp(40px, 8vw, 60px);
+  text-align: center;
+  position: relative;
+  text-shadow: none;
+  letter-spacing: -1px;
+}
+
+/* Enhanced underline with gradient animation */
+.about-me-intro-text h2::after {
+  content: '';
+  display: block;
+  width: clamp(80px, 15vw, 120px);
+  height: 5px;
+  background: var(--accent-gradient);
+  border-radius: 3px;
+  margin: 15px auto 0;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px rgba(79, 172, 254, 0.5); }
+  to { box-shadow: 0 0 20px rgba(79, 172, 254, 0.8), 0 0 30px rgba(79, 172, 254, 0.4); }
 }
 
 .about-me-intro-text p {

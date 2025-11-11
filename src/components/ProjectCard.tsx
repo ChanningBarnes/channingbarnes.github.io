@@ -31,7 +31,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div className="project-card">
       {imageUrl && (
-        <img src={imageUrl} alt={`${title} screenshot`} className="project-image" />
+        <div className="project-image-container">
+          <img src={imageUrl} alt={`${title} screenshot`} className="project-image" />
+        </div>
       )}
       <div className="project-content">
         <h3 className="project-title">{title}</h3>

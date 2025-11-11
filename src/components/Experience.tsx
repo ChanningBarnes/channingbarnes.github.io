@@ -79,7 +79,7 @@ const Experience: React.FC = () => {
       <div>
         {experiencesData.map((exp) => (
           <article key={exp.id} className="experience-item">
-            {/* The header is now cleaner, relying on the CSS for layout */}
+            {/* Company Logo and Job Details */}
             <header className="experience-header">
               <img
                 src={exp.logo}
@@ -91,7 +91,7 @@ const Experience: React.FC = () => {
                 <p className="company-name">{exp.company}</p>
               </div>
               <p className="job-location-dates">
-                <span>{exp.location}</span> | <span>{exp.dates}</span>
+                <span>{exp.location}</span><span>{exp.dates}</span>
               </p>
             </header>
             <ul className="responsibilities-list">

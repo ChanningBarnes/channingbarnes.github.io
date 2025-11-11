@@ -18,7 +18,8 @@ export type Project = { // Use 'export' if you need this type outside this file 
   imageUrl?: string;
   technologies?: Technology[];
   liveUrl?: string;
-  repoUrl?: string;
+  webpageUrl?: string;
+  codeUrl?: string;
 };
 
 // Define the interface for the component's props
@@ -38,21 +39,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects = [] }) => {
   return (
     <div className="project-list">
       {projects.map((project) => (
-        // Spread the project properties directly into ProjectCard
-        // This works well if ProjectCardProps align with Project type keys
-        // Ensure 'key' is always provided separately for list rendering
         <ProjectCard key={project.id} {...project} />
-
-        // Or pass props individually (more explicit if types differ slightly):
-        /* <ProjectCard
-            key={project.id} // Unique key is crucial
-            title={project.title}
-            description={project.description}
-            imageUrl={project.imageUrl}
-            technologies={project.technologies}
-            liveUrl={project.liveUrl}
-            repoUrl={project.repoUrl}
-         /> */
       ))}
     </div>
   );

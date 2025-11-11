@@ -28,7 +28,7 @@ const myProjects: Project[] = [
     id: 1,
     title: 'Personal Portfolio Website',
     description: 'The website you are currently viewing! Built with React & TypeScript, showcasing my projects and skills.',
-    imageUrl: '../imgs/file.png',
+    imageUrl: '/imgs/file.png',
     technologies: [
       { name: 'React', iconClass: 'fab fa-react' },
       { name: 'TypeScript', iconClass: 'fab fa-js-square' },
@@ -41,7 +41,7 @@ const myProjects: Project[] = [
     id: 2,
     title: 'Bible In A Year',
     description: 'A web application to generate a yearlong Bible reading plan starting from any date.',
-    imageUrl: '../imgs/bible.png',
+    imageUrl: '/imgs/bible.png',
     technologies: [
       { name: 'HTML', iconClass: 'fab fa-html5' },
       { name: 'CSS', iconClass: 'fab fa-css3-alt' },
@@ -53,8 +53,8 @@ const myProjects: Project[] = [
   {
     id: 3,
     title: 'Argos (Project Glass Wall)',
-    description: 'A simple web application to check the current weather and forecast for a city using a third-party API.',
-    imageUrl: '../imgs/argos.png',
+    description: 'My senior project at NCAT! A remote object detection inventory management system',
+    imageUrl: '/imgs/argos.png',
     technologies: [
       { name: 'HTML', iconClass: 'fab fa-html5' },
       { name: 'CSS', iconClass: 'fab fa-css3-alt' },
@@ -71,7 +71,7 @@ const myProjects: Project[] = [
     id: 4,
     title: "CC's Coffee and Cream",
     description: 'A website for a small coffee shop business.',
-    imageUrl: '../imgs/cc.png',
+    imageUrl: '/imgs/cc.png',
     technologies: [
       { name: 'HTML', iconClass: 'fab fa-html5' },
       { name: 'CSS', iconClass: 'fab fa-css3-alt' },
@@ -81,6 +81,20 @@ const myProjects: Project[] = [
     webpageUrl: 'https://ccscoffeeandcream.com',
     codeUrl: '#' // Dummy link
   },
+  {
+    id: 5,
+    title: "Abstinent Adolescents",
+    description: "A website for a non-profit organization promoting abstinence education.",
+    imageUrl: '/imgs/aalogo.png',
+    technologies: [
+      { name: 'HTML', iconClass: 'fab fa-html5' },
+      { name: 'CSS', iconClass: 'fab fa-css3-alt' },
+      { name: 'JavaScript', iconClass: 'fab fa-js-square' },
+      { name: 'React', iconClass: 'fab fa-react' },
+    ],
+    webpageUrl: 'https://abstinentadolescents.com',
+    codeUrl: '#' // Dummy link
+  }
 ];
 // --- End Sample Data ---
 
