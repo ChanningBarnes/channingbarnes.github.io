@@ -94,6 +94,18 @@ const myProjects: Project[] = [
     ],
     webpageUrl: 'https://abstinentadolescents.com',
     codeUrl: '#' // Dummy link
+  },
+  {
+    id: 6,
+    title: "Paul's Prayer Points",
+    description: "I wanted to make a website where people can pray the prayers that Paul prayed",
+    imageUrl: '/imgs/ppp.png',
+    technologies: [
+      { name: 'HTML', iconClass: 'fab fa-html5' },
+      { name: 'CSS', iconClass: 'fab fa-css3-alt' },
+      { name: 'JavaScript', iconClass: 'fab fa-js-square' },
+    ],
+      webpageUrl: 'https://channingbarnes.github.io/paulsprayerpoints/'
   }
 ];
 // --- End Sample Data ---
